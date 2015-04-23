@@ -6,7 +6,7 @@ $(document).ready(function(){
       slideSpeed = 400;
 
   //set the width of div#tray
-  $('#tray').width(slideWidth * numOfSlides);
+  $('.tray').width(slideWidth * numOfSlides);
 
   $('a.next').click(function(event){
 
@@ -20,7 +20,7 @@ $(document).ready(function(){
     //calc distance to move
     var distance = positionNum * slideWidth;
     //animate the #tray that distance
-    $('#tray').animate({right: distance}, slideSpeed);
+    $('.tray').animate({right: distance}, slideSpeed);
     event.preventDefault();
   });
 
@@ -36,8 +36,18 @@ $(document).ready(function(){
     //calc distance to move
     var distance = positionNum * slideWidth;
     //animate the #tray that distance
-    $('#tray').animate({right: distance}, slideSpeed);
+    $('.tray').animate({right: distance}, slideSpeed);
     event.preventDefault();
+  });
+
+  //hide arrows initially
+  $('a.prev, a.next').hide();
+
+  //show arrows on hover
+  $('.frame').hover(function () {
+    $('a.prev, a.next').show();
+  }, function () {
+    $('a.prev, a.next').hide();
   });
 
 });
